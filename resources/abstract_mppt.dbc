@@ -1,0 +1,112 @@
+VERSION ""
+
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_: 
+BU_: ABSTRACT_MPPT 
+BO_ 0 Input_measurements: 8 ABSTRACT_MPPT
+   SG_ Input_voltage : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Input_current : 32|32@5- (1,0) [-10000|10000] "Amps" Vector__XXX
+
+BO_ 1 Output_measurments: 8 ABSTRACT_MPPT
+   SG_ Output_voltage : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Output_current : 32|32@5- (1,0) [-10000|10000] "Amps" Vector__XXX
+
+BO_ 2 Temperature: 8 ABSTRACT_MPPT
+   SG_ Mosfet_temperature : 0|32@5- (1,0) [-10000|10000] "Celsius" Vector__XXX
+   SG_ Controller_temperature : 32|32@5- (1,0) [-10000|10000] "" Vector__XXX
+
+BO_ 3 Auxiliary_power_supply: 8 ABSTRACT_MPPT
+   SG_ Twelve_V : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Three_V : 32|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+
+BO_ 4 Limits: 8 ABSTRACT_MPPT
+   SG_ Max_output_voltage : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Max_input_current : 32|32@5- (1,0) [-10000|10000] "Amps" Vector__XXX
+
+BO_ 5 Status: 8 ABSTRACT_MPPT
+   SG_ CAN_RX_error_counter : 0|8@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ CAN_TX_error_counter : 8|8@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Low_array_power : 31|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Mosfet_overheat : 30|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Battery_low : 29|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Batter_full : 28|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Twelve_V_undervoltage : 27|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ HW_overcurrent : 25|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ HW_overvoltage : 24|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Input_current_min : 39|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Input_current_max : 38|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Output_voltage_max : 37|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Mosfet_temperature_error : 36|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Duty_cycle_min : 35|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Duty_cycle_max : 34|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Local_MPPT : 33|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Global_MPPT : 32|1@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Mode : 40|8@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ CAN_TX_overflow_counter : 16|8@1+ (1,0) [-10000|10000] "" Vector__XXX
+   SG_ Test_counter : 56|8@1+ (1,0) [-10000|10000] "" Vector__XXX
+
+BO_ 6 Power_connector: 8 ABSTRACT_MPPT
+   SG_ Power_connector_output_voltage : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Power_connector_temperature : 32|32@5- (1,0) [-10000|10000] "Celsius" Vector__XXX
+
+BO_ 7 Sweep_measurements: 8 ABSTRACT_MPPT
+   SG_ Sweep_input_voltage : 0|32@5- (1,0) [-10000|10000] "Volts" Vector__XXX
+   SG_ Sweep_input_current : 32|32@5- (1,0) [-10000|10000] "Amps" Vector__XXX
+
+BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
+BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_ "GenMsgForegroundColor" BO_ 1541 "#000000";
+BA_ "GenMsgForegroundColor" BO_ 1542 "#000000";
+BA_DEF_DEF_ "GenMsgBackgroundColor" "#1e1e1e";
+BA_DEF_DEF_ "GenMsgForegroundColor" "#ffffff";
+BA_DEF_DEF_ "matchingcriteria" 0;
+BA_DEF_DEF_ "filterlabeling" 0;
+
+SIG_VALTYPE_ 0 Input_voltage : 1;
+SIG_VALTYPE_ 0 Input_current : 1;
+SIG_VALTYPE_ 1 Output_voltage : 1;
+SIG_VALTYPE_ 1 Output_current : 1;
+SIG_VALTYPE_ 2 Mosfet_temperature : 1;
+SIG_VALTYPE_ 2 Controller_temperature : 1;
+SIG_VALTYPE_ 3 Twelve_V : 1;
+SIG_VALTYPE_ 3 Three_V : 1;
+SIG_VALTYPE_ 4 Max_output_voltage : 1;
+SIG_VALTYPE_ 4 Max_input_current : 1;
+SIG_VALTYPE_ 6 Power_connector_output_voltage : 1;
+SIG_VALTYPE_ 6 Power_connector_temperature : 1;
+SIG_VALTYPE_ 7 Sweep_input_voltage : 1;
+SIG_VALTYPE_ 7 Sweep_input_current : 1;

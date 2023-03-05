@@ -1,0 +1,192 @@
+VERSION ""
+
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_: 
+BU_: ABSTRACT_MOTOR_CONTROLLER 
+BO_ 0 IDInfo: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ TritiumID : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ SerialNumber : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1 Status: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ LimitFlags : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ErrorFlags : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ActiveMotor : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ TxErrorCount : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ RxErrorCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2 BusMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ BusVoltage : 0|32@1- (1,0) [0|0] "V" Vector__XXX
+   SG_ BusCurrent : 32|32@1- (1,0) [0|0] "A" Vector__XXX
+
+BO_ 3 VelocityMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ MotorVelocity : 0|32@1- (1,0) [0|0] "rpm" Vector__XXX
+   SG_ VehicleVelocity : 32|32@1- (1,0) [0|0] "m/s" Vector__XXX
+
+BO_ 4 PhaseCurrentMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ PhaseCurrentB : 0|32@1- (1,0) [0|0] "A_rms" Vector__XXX
+   SG_ PhaseCurrentC : 32|32@1- (1,0) [0|0] "A_rms" Vector__XXX
+
+BO_ 5 MotorVoltageVectorMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Vq : 0|32@1- (1,0) [0|0] "V" Vector__XXX
+   SG_ Vd : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 6 MotorCurrentVectorMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Iq : 0|32@1- (1,0) [0|0] "A" Vector__XXX
+   SG_ Id : 32|32@1- (1,0) [0|0] "A" Vector__XXX
+
+BO_ 7 MotorBackEMFMeasurementPrediction: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ BEMFq : 0|32@1- (1,0) [0|0] "V" Vector__XXX
+   SG_ BEMFd : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 8 VoltageRail15VMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Supply15V : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+   SG_ ReservedSupply15V : 0|32@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 9 VoltageRail3V31V9Measurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Supply1V9 : 0|32@1- (1,0) [0|0] "V" Vector__XXX
+   SG_ Supply3V3 : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 10 Reserved0A: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Reserved0A0 : 0|32@1- (1,0) [0|0] "" Vector__XXX
+   SG_ Reserved0A1 : 32|32@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 11 HeatsinkMotorTempMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ MotorTemp : 0|32@1- (1,0) [0|0] "C" Vector__XXX
+   SG_ HeatsinkTemp : 32|32@1- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 12 DspBoardTempMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ DspBoardTemp : 0|32@1- (1,0) [0|0] "C" Vector__XXX
+   SG_ ReservedDspBoardTemp : 32|32@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 13 Reserved0D: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Reserved0D0 : 0|32@1- (1,0) [0|0] "" Vector__XXX
+   SG_ Reserved0D1 : 32|32@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 14 OdometerBusAhMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ Odometer : 0|32@1- (1,0) [0|0] "m" Vector__XXX
+   SG_ DCBusAh : 32|32@1- (1,0) [0|0] "Ah" Vector__XXX
+
+BO_ 23 SlipSpeedMeasurement: 8 ABSTRACT_MOTOR_CONTROLLER
+   SG_ SlipSpeed : 32|32@1- (1,0) [0|0] "Hz" Vector__XXX
+   SG_ ReservedSlipSpeed : 0|32@1- (1,0) [0|0] "" Vector__XXX
+
+BA_DEF_ BO_ "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BU_ "GenNodAutoGenSnd" ENUM "No","Yes";
+BA_DEF_ BU_ "GenNodAutoGenDsp" ENUM "No","Yes","No","Yes";
+BA_DEF_ "GenEnvVarEndingDsp" STRING ;
+BA_DEF_ "GenEnvVarEndingSnd" STRING ;
+BA_DEF_ "GenEnvVarPrefix" STRING ;
+BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
+BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_ "GenMsgCycleTime" BO_ 0 1000;
+BA_ "GenMsgCycleTime" BO_ 1 200;
+BA_ "GenMsgCycleTime" BO_ 2 200;
+BA_ "GenMsgCycleTime" BO_ 3 200;
+BA_ "GenMsgCycleTime" BO_ 4 200;
+BA_ "GenMsgCycleTime" BO_ 5 200;
+BA_ "GenMsgCycleTime" BO_ 6 200;
+BA_ "GenMsgCycleTime" BO_ 7 200;
+BA_ "GenMsgCycleTime" BO_ 8 1000;
+BA_ "GenMsgCycleTime" BO_ 9 1000;
+BA_ "GenMsgCycleTime" BO_ 10 0;
+BA_ "GenMsgCycleTime" BO_ 11 1000;
+BA_ "GenMsgCycleTime" BO_ 12 1000;
+BA_ "GenMsgCycleTime" BO_ 13 1000;
+BA_ "GenMsgCycleTime" BO_ 14 1000;
+BA_ "GenMsgCycleTime" BO_ 23 200;
+BA_DEF_DEF_ "GenMsgCycleTime" 100;
+BA_DEF_DEF_ "GenNodAutoGenSnd" "Yes";
+BA_DEF_DEF_ "GenNodAutoGenDsp" "Yes";
+BA_DEF_DEF_ "GenEnvVarEndingDsp" "Dsp";
+BA_DEF_DEF_ "GenEnvVarEndingSnd" "Snd";
+BA_DEF_DEF_ "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_ "GenMsgBackgroundColor" "#1e1e1e";
+BA_DEF_DEF_ "GenMsgForegroundColor" "#ffffff";
+BA_DEF_DEF_ "matchingcriteria" 0;
+BA_DEF_DEF_ "filterlabeling" 0;
+BA_DEF_DEF_ "matchingcriteria" 0;
+BA_DEF_DEF_ "filterlabeling" 0;
+CM_ SG_ 0 TritiumID "Device identifier. 0x00004003";
+CM_ SG_ 0 SerialNumber "Device serial number, allocated at manufacture.";
+CM_ SG_ 1 LimitFlags "Flags indicate which control loop is limiting the output current of the motor controller.";
+CM_ SG_ 1 ErrorFlags "Flags indicate errors.";
+CM_ SG_ 1 ActiveMotor "The index of the active motor currently being used.";
+CM_ SG_ 1 TxErrorCount "The DSP CAN transmission error counter (CAN 2.0)";
+CM_ SG_ 1 RxErrorCount "The DSP CAN receive error counter (CAN 2.0)";
+CM_ SG_ 2 BusVoltage "DC bus voltage at the controller.";
+CM_ SG_ 2 BusCurrent "Current drawn from the DC bus by the controller.";
+CM_ SG_ 3 MotorVelocity "Motor angular frequency in revolutions per minute.";
+CM_ SG_ 3 VehicleVelocity "Vehicle velocity in metres / second.";
+CM_ SG_ 4 PhaseCurrentB "RMS current in motor Phase B.";
+CM_ SG_ 4 PhaseCurrentC "RMS current in motor Phase C.";
+CM_ SG_ 5 Vq "Imaginary component of the applied non-rotating voltage vector to the motor.";
+CM_ SG_ 5 Vd "Real component of the applied non-rotating voltage vector to the motor.";
+CM_ SG_ 6 Iq "Imaginary component of the applied non-rotating current vector to the motor. This current produces torque in the motor and should be in phase with the back-EMF of the motor";
+CM_ SG_ 6 Id "Real component of the applied non-rotating current vector to the motor. This vector represents the field current of the motor.";
+CM_ SG_ 7 BEMFq "The peak of the phase to neutral motor voltage.";
+CM_ SG_ 7 BEMFd "By definition this value is always 0V.";
+CM_ SG_ 8 Supply15V "Actual voltage level of the 15V power rail.";
+CM_ SG_ 9 Supply1V9 "Actual voltage level of the 1.9V DSP power rail.";
+CM_ SG_ 9 Supply3V3 "Actual voltage level of the 3.3V power rail.";
+CM_ SG_ 11 MotorTemp "Internal temperature of the motor";
+CM_ SG_ 11 HeatsinkTemp "Internal temperature of Heat-sink (case).";
+CM_ SG_ 12 DspBoardTemp "Temperature of the DSP board.";
+CM_ SG_ 14 Odometer "Distance the vehicle has travelled since reset.";
+CM_ SG_ 14 DCBusAh "Charge flow into the controller DC bus from the time of reset.";
+CM_ SG_ 23 SlipSpeed "Slip speed when driving an induction motor.";
+
+SIG_VALTYPE_ 2 BusVoltage : 1;
+SIG_VALTYPE_ 2 BusCurrent : 1;
+SIG_VALTYPE_ 3 MotorVelocity : 1;
+SIG_VALTYPE_ 3 VehicleVelocity : 1;
+SIG_VALTYPE_ 4 PhaseCurrentB : 1;
+SIG_VALTYPE_ 4 PhaseCurrentC : 1;
+SIG_VALTYPE_ 5 Vq : 1;
+SIG_VALTYPE_ 5 Vd : 1;
+SIG_VALTYPE_ 6 Iq : 1;
+SIG_VALTYPE_ 6 Id : 1;
+SIG_VALTYPE_ 7 BEMFq : 1;
+SIG_VALTYPE_ 7 BEMFd : 1;
+SIG_VALTYPE_ 8 Supply15V : 1;
+SIG_VALTYPE_ 9 Supply1V9 : 1;
+SIG_VALTYPE_ 9 Supply3V3 : 1;
+SIG_VALTYPE_ 11 MotorTemp : 1;
+SIG_VALTYPE_ 11 HeatsinkTemp : 1;
+SIG_VALTYPE_ 12 DspBoardTemp : 1;
+SIG_VALTYPE_ 14 Odometer : 1;
+SIG_VALTYPE_ 14 DCBusAh : 1;
+SIG_VALTYPE_ 23 SlipSpeed : 1;

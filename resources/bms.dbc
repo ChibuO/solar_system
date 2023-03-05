@@ -1,0 +1,69 @@
+VERSION ""
+
+
+NS_ : 
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_:
+
+BU_: BMS Third_Party_Device
+
+
+BO_ 1314 MSGID_0X522: 8 Third_Party_Device
+ SG_ MPO3_State : 7|8@0+ (1.0,0) [0|0] ""  BMS
+ SG_ MPO_State : 15|8@0+ (1.0,0) [0|0] ""  BMS
+ SG_ MPE_State : 23|8@0+ (1.0,0) [0|0] ""  BMS
+ SG_ Blank : 31|8@0+ (1.0,0) [0|0] ""  BMS
+
+BO_ 55 MSGID_0X37: 8 BMS
+ SG_ High_Opencell_Voltage : 7|16@0+ (1.0E-4,1) [0|0] "Volts"  Third_Party_Device
+ SG_ Avg_Opencell_Voltage : 23|8@0+ (1.0E-4,0) [0|0] "Volts"  Third_Party_Device
+
+BO_ 58 MSGID_0X3A: 8 BMS
+ SG_ High_Cell_Resistance : 7|16@0+ (0.01,0) [0|0] "mOhm"  Third_Party_Device
+
+BO_ 368 MSGID_0X170: 8 BMS
+ SG_ Maximum_Pack_Voltage : 0|16@1+ (0.1,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Total_Pack_Cycles : 16|16@1+ (1.0,0) [0|0] "Num"  Third_Party_Device
+ SG_ Max_Cell_Number : 39|8@0+ (1.0,0) [0|0] "Num"  Third_Party_Device
+
+BO_ 54 MSGID_0X36_CELLBCAST: 8 BMS
+ SG_ CellId : 7|8@0+ (1,0) [0|0] "#" Third_Party_Device
+ SG_ CellVoltage : 15|16@0+ (0.0001,0) [0|0] "Volts" Third_Party_Device
+ SG_ CellResistance : 30|15@0+ (0.01,0) [0|0] "mOhms" Third_Party_Device
+ SG_ CellOpenVoltage : 47|16@0+ (0.0001,0) [0|0] "Volts" Third_Party_Device
+ SG_ Checksum : 63|8@0+ (1,0) [0|0] "" Third_Party_Device
+ SG_ CellBalancing : 31|1@1+ (1,0) [0|0] "" Third_Party_Device
+CM_ BO_ 55 "This ID Transmits at 48 ms.";
+CM_ BO_ 58 "This ID Transmits at 48 ms.";
+CM_ BO_ 368 "This ID Transmits at 8 ms.";
+CM_ BO_ 54 "This ID Transmits at 4 ms.";
+CM_ SG_ 54 Checksum "Value = (0x36 + 8 + byte0 + byte1 + ... + byte6) & 0xFF";
+
